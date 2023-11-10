@@ -1,0 +1,56 @@
+.card {
+  background-color: #fef9eb;
+  border: solid 4px #000f27;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px rgba(#539cb8, 0.5);
+}
+.id {
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  color: #000f27;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0 20px;
+}
+.list {
+  > * + * {
+    margin-top: 10px;
+  }
+}
+.item {
+  height: 50px;
+  width: 50px;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+}
+
+.cardFadeOut {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+.footer {
+  margin-top: 20px;
+}
+.deleteButton {
+  background-color: #000f27;
+  color: #fff;
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
