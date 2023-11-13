@@ -9,9 +9,13 @@ $colors: (
 
 @mixin label-style($color) {
   background-color: $color;
-  background-image: linear-gradient(to top, $color, mix($color, #fff, 60%));
+  background-image: linear-gradient(to top, $color, mix($color, #fff, 80%));
   box-shadow: 3px 3px 10px 0px rgba(255, 255, 255, 0.2) inset,
-    -3px -3px 10px 0px rgba(#539cb8, 0.75) inset;
+    -3px -3px 10px 0px rgba(#539cb8, 0.55) inset;
+
+  &::before {
+    background: $color;
+  }
 }
 
 @each $key, $value in $colors {
@@ -20,7 +24,10 @@ $colors: (
       @include label-style($value);
     }
     input:checked + label {
-      background: color.mix($value, #fff, 60%);
+      background: color.mix($value, #fff, 90%);
+      &::before {
+        background: color.mix($value, #fff, 90%);
+      }
     }
   }
 }
@@ -63,9 +70,25 @@ $colors: (
     justify-content: center;
     align-items: center;
     content: '❌';
-    font-size: 30px;
+    font-size: 40px;
     filter: drop-shadow(0 0 2px #fff);
     font-family: sans-serif;
+    z-index: 3;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+  }
+  span {
+    position: relative;
+    z-index: 2;
   }
 }
 
@@ -73,5 +96,5 @@ $colors: (
   @include label-style(#367083);
   color: #fff;
   font-weight: 900;
-  font-size: 26px;
+  font-size: 36px;
 }

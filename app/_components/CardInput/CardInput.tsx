@@ -33,7 +33,7 @@ export function CardInputNumber({ number, id }: CardInputNumberProps) {
         name={`number${id}`}
       ></input>
       <label htmlFor={`${number}${id}`} className={styles.label}>
-        {number}
+        <span>{number}</span>
       </label>
     </div>
   )
