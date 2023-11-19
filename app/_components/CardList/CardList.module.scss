@@ -1,0 +1,9 @@
+.list {
+  > * + * {
+    margin-top: 10px;
+  }
+}
+.item {
+  height: 80px;
+  width: 80px;
+}
